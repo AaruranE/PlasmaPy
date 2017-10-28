@@ -3,12 +3,42 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PlasmaPy's documentation!
-====================================
+PlasmaPy Documentation
+======================
+
+PlasmaPy is an open source community-developed core Python package for
+plasma physics in the early stages of development.  The documentation
+contained on this page is in the process of being written.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   plasmapy/index.rst
+
+Getting Started
+===============
+
+* `Installation instructions
+  <https://github.com/PlasmaPy/PlasmaPy/blob/master/INSTALL.md>`_
+* `Contributing to PlasmaPy
+  <https://github.com/PlasmaPy/PlasmaPy/blob/master/CONTRIBUTING.md>`_
+* `Code of conduct
+  <https://github.com/PlasmaPy/PlasmaPy/blob/master/CODE_OF_CONDUCT.md>`_
+* `PlasmaPy on GitHub
+  <https://github.com/PlasmaPy/plasmapy>`_
+* `PlasmaPy website
+  <http://www.plasmapy.org/>`_
+
+Modules
+=======
+
+.. toctree::
+    :maxdepth: 1
+
+    atomic/index
+    math/index
+    physics/index
 
 Classes
 =======
@@ -17,13 +47,6 @@ Classes
     :maxdepth: 1
 
     plasma/index
-
-Functions
-=========
-.. toctree::
-    :maxdepth: 1
-
-    dispersion_solver/index
 
 Development
 =======
@@ -40,4 +63,6 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`modindex`
-* :ref:`search`
+
+.. Did not include one for `search` since that page didn't show up
+   satisfactorily
