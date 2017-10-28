@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 import astropy.units as u
 from ...constants import c, h
-from ..quantum import deBroglie_wavelength
+from plasmapy.physics.quantum import deBroglie_wavelength
 
 
 def test_deBroglie_wavelength():

@@ -2,7 +2,7 @@ from itertools import product
 from astropy import units as u, constants as const
 import numpy as np
 
-from ..atomic import (atomic_symbol, isotope_symbol, atomic_number,
+from plasmapy.atomic.atomic import (atomic_symbol, isotope_symbol, atomic_number,
                       mass_number, element_name, standard_atomic_weight,
                       isotope_mass, ion_mass, is_isotope_stable,
                       half_life, known_isotopes, common_isotopes,
@@ -12,7 +12,7 @@ from ..atomic import (atomic_symbol, isotope_symbol, atomic_number,
                       _is_positron, _is_antiproton, _is_alpha,
                       _extract_charge_state)
 
-from ..nuclear import (nuclear_binding_energy, nuclear_reaction_energy)
+from plasmapy.atomic.nuclear import (nuclear_binding_energy, nuclear_reaction_energy)
 
 import pytest
 

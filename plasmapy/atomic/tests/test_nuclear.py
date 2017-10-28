@@ -1,7 +1,6 @@
-from itertools import product
-from astropy import units as u, constants as const
+from astropy import units as u
 import numpy as np
-from ..nuclear import (nuclear_binding_energy, nuclear_reaction_energy)
+from plasmapy.atomic.nuclear import (nuclear_binding_energy, nuclear_reaction_energy)
 
 import pytest
 

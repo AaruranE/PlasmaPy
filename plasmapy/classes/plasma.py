@@ -5,8 +5,8 @@ plasmapy.plasma
 Defines the core Plasma class used by PlasmaPy to represent plasma properties.
 """
 
-import numpy as np
 import astropy.units as u
+import numpy as np
 
 mu0 = np.pi * 4.0e-7 * (u.newton / (u.amp**2))
 

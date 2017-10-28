@@ -5,7 +5,7 @@ from astropy import units as u
 import pytest
 
 from ...constants import c
-from ..checks import (
+from plasmapy.utils.checks import (
     _check_quantity, _check_relativistic, check_relativistic,
     check_quantity
 )
