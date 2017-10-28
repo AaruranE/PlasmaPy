@@ -2,10 +2,10 @@
 
 from astropy import units
 import numpy as np
-from ..utils import check_quantity, _check_relativistic
-from ..constants import (m_p, m_e, c, mu0, k_B, e, eps0, pi, h, hbar)
-from ..atomic import (ion_mass, charge_state)
-from .parameters import Debye_length
+from plasmapy.utils import check_quantity, _check_relativistic
+from plasmapy.constants import (m_p, m_e, c, mu0, k_B, e, eps0, pi, h, hbar)
+from plasmapy.atomic import (ion_mass, charge_state)
+from plasmapy.parameters import Debye_length
 
 
 @check_quantity({"T": {"units": units.K, "can_be_negative": False},

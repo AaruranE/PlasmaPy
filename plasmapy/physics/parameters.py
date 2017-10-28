@@ -5,15 +5,15 @@ from astropy import units
 from astropy.units import (UnitConversionError, UnitsError, quantity_input,
                            Quantity)
 
-from ..constants import (m_p, m_e, c, mu0, k_B, e, eps0, pi)
-from ..atomic import (ion_mass, charge_state)
+from plasmapy.constants import (m_p, m_e, c, mu0, k_B, e, eps0, pi)
+from plasmapy.atomic import (ion_mass, charge_state)
 
 import numpy as np
 
 # For future: change these into decorators.  _check_quantity does a
 # bit more than @quantity_input as it can allow
 
-from ..utils import _check_quantity, check_relativistic, check_quantity
+from plasmapy.utils import _check_quantity, check_relativistic, check_quantity
 
 
 r"""Values should be returned as an Astropy Quantity in SI units.

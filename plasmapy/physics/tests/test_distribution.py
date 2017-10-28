@@ -5,9 +5,9 @@ import pytest
 from astropy import units as u
 
 
-from ...constants import (m_p, m_e, c, mu0, k_B, e, eps0, pi, e)
-from ...atomic import (ion_mass, charge_state)
-from ..distribution import (Maxwellian_1D)
+from plasmapy.constants import (m_p, m_e, c, mu0, k_B, e, eps0, pi, e)
+from plasmapy.atomic import (ion_mass, charge_state)
+from plasmapy.physics.distribution import (Maxwellian_1D)
 
 T_e = 30000*u.K
 V_drift = 1000000*u.m/u.s

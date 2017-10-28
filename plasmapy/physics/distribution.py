@@ -5,12 +5,10 @@ from astropy import units
 from astropy.units import (UnitConversionError, UnitsError, quantity_input,
                            Quantity)
 
-from ..constants import (m_p, m_e, c, mu0, k_B, e, eps0, pi, e)
-from ..atomic import (ion_mass, charge_state)
-from ..atomic.atomic import _is_electron as is_electron
+from plasmapy.constants import (m_p, m_e, c, mu0, k_B, e, eps0, pi, e)
+from plasmapy.atomic import (ion_mass, charge_state)
+from plasmapy.atomic.atomic import _is_electron as is_electron
 import numpy as np
-
-from ..utils import _check_quantity, check_relativistic, check_quantity
 
 
 @units.quantity_input

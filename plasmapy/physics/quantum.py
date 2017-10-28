@@ -1,9 +1,9 @@
 import numpy as np
 from astropy import units
-from ..constants import c, h
-from ..atomic import ion_mass
-from ..utils import _check_quantity, _check_relativistic
-from .relativity import Lorentz_factor
+from plasmapy.constants import c, h
+from plasmapy.atomic import ion_mass
+from plasmapy.utils import _check_quantity, _check_relativistic
+from plasmapy.physics.relativity import Lorentz_factor
 
 
 def deBroglie_wavelength(V, particle):
