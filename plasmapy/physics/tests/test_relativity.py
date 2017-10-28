@@ -3,7 +3,7 @@
 import pytest
 import numpy as np
 from astropy import units as u
-from ...constants import c
+from plasmapy.constants import c
 from plasmapy.physics.relativity import Lorentz_factor
 
 
