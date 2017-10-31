@@ -10,12 +10,6 @@ PlasmaPy is an open source community-developed core Python package for
 plasma physics in the early stages of development.  The documentation
 contained on this page is in the process of being written.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   plasmapy/index.rst
-
 Getting Started
 ===============
 
@@ -49,12 +43,13 @@ Classes
     plasma/index
 
 Development
-=======
+===========
 
 .. toctree::
     :maxdepth: 1
        
     development/code_guide
+    development/testing_guide
     development/doc_guide
     development/release_guide
 
