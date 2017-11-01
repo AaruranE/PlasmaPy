@@ -74,21 +74,6 @@ Documentation
 
 * These docstrings should include usage examples.
 
-Testing
-=======
-
-* Unit tests should be provided for all methods when possible.
-
-* Bugs should be turned into test cases.  
-  
-* The Travis CI integration on GitHub runs tests whenever pull
-  requests to PlasmaPy are updated.  The pytest module may used on a
-  local computer.
-  
-* Tests are run frequently during code development, and slow tests may
-  interrupt the flow of a contributor.  Tests should be efficient
-  except as needed.
-  
 Warnings and Exceptions
 =======================
 
@@ -191,5 +176,6 @@ by an angular frequency to get a length scale:
 >>> d_i = (c/omega_pi).to(units.m, equivalencies=units.dimensionless_angles())
 
 
+.. TODO add note on energies in K, eV
 
 
