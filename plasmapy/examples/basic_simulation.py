@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import datetime
 
-from plasmapy import Plasma
+from plasmapy.classes import *
 
 savedir = Path("~/PlasmaPy/plasmapy/tests/test_output").expanduser()
 if not savedir.exists():
