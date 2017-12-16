@@ -7,8 +7,8 @@ Classes and functionality for simulations.
 
 import numpy as np
 import astropy.units as u
-from ..numerical.spatial_solvers import Solver
-from ..constants import mu0
+from plasmapy.numerical.spatial_solvers import Solver
+from plasmapy.constants import mu0
 
 
 class MHDSimulation:
