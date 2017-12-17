@@ -199,7 +199,7 @@ class MHDSimulation:
         rho = self.plasma.density
         v = self.plasma.velocity
         visc = self.total_viscosity(v[0])
-        # Define a new solver to differentiate individial velocity vectors.
+        # Define a new solver to differentiate individual velocity vectors.
         v_solver = Solver(self.solver.dx)
 
         # So very unsure about this equation right here
