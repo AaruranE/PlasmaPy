@@ -43,7 +43,7 @@ def riemann_shock():
     density = np.zeros(grid) * u.kg / u.m**3
     energy = np.zeros(grid) * u.J / u.m**3
 
-    discont = 0.5 * u.m
+    discont = 0.5
     density[x < discont] = 1.0 * density.unit
     density[x > discont] = 0.125 * density.unit
     energy[x < discont] = 2.5 * energy.unit
@@ -62,12 +62,12 @@ def riemann_shock():
 
         fig, ax = plt.subplots(2, 2)
         ax = ax.flatten()
-        ax[0].plot(x, riemann.density)
+        ax[0].plot(x[:, 0, 0], riemann.density[:, 0, 0])
         ax[0].set_ylim(0, 1.2)
-        ax[1].plot(x, riemann.velocity[0, :, ...])
+        ax[1].plot(x[:, 0, 0], riemann.velocity[0, :, ...][:, 0, 0])
         ax[1].set_ylim(0, 1.1)
-        ax[2].plot(x, riemann.energy)
-        ax[3].plot(x, riemann.pressure)
+        ax[2].plot(x[:, 0, 0], riemann.energy[:, 0, 0])
+        ax[3].plot(x[:, 0, 0], riemann.pressure[:, 0, 0])
         ax[3].set_ylim(0, 1.2)
         plt.savefig(
             str(savedir/"riemann_shock_{:.4f}".format(maxt)).replace('.', '_'))
@@ -85,7 +85,7 @@ def riemann_shock():
     fig, axes = plt.subplots(2, 2, figsize=(12, 6))
     axes = axes.flatten()
     for i, ax in enumerate(axes):
-        ax.plot(x, params[i])
+        ax.plot(x[:, 0, 0], params[i][:, 0, 0])
         ax.set_ylabel(labels[i])
     fig.savefig(str(savedir/"riemann_shock_final"))
     plt.close(fig)
@@ -109,8 +109,8 @@ def test_mhd_waves():
     # Define initial parameter values - only in perturbed component
     print('- Setting initial conditions... ', end='')
     bfield = np.zeros((3, *grid)) * u.T
-    density = (gaussian(r.value, std=0.06, amp=0.9) + 0.1) * u.kg / u.m**3
-    energy = (gaussian(r.value, std=0.06, amp=0.9) + 0.1) * u.J / u.m**3
+    density = (gaussian(r, std=0.06, amp=0.9) + 0.1) * u.kg / u.m**3
+    energy = (gaussian(r, std=0.06, amp=0.9) + 0.1) * u.J / u.m**3
 
     waves.density = density
     waves.energy = energy
@@ -123,7 +123,7 @@ def test_mhd_waves():
         print("Simulation complete")
 
         fig, ax = plt.subplots()
-        IM = ax.imshow(waves.density.value, cmap='plasma')
+        IM = ax.imshow(waves.density, cmap='plasma')
         plt.colorbar(IM)
         fig.savefig(str(savedir/f"mhd_waves_{max_i}"))
         plt.close(fig)

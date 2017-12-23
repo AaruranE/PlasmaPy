@@ -58,8 +58,8 @@ class MHDSimulation:
 
         grids = (self.plasma.x.si, self.plasma.y.si, self.plasma.z.si)
         ranges = [grid for grid in grids if len(grid) > 1]
-        stepsize = [range[1] - range[0] for range in ranges] * grids[0].unit
-        self.solver = Solver(stepsize)
+        stepsize = [r[1] - r[0] for r in ranges] * grids[0].unit
+        self.solver = Solver((stepsize, stepsize, stepsize))
 
         # Collect equations into a nice easy-to-use list
         self.equations = [self._ddt_density, self._ddt_momentum,
@@ -229,7 +229,7 @@ class MHDSimulation:
         """
 
         return self.hyperdiff_viscosity(param, paramaxis) \
-            + self.shock_viscosity(paramaxis)
+        + self.shock_viscosity(paramaxis)
 
 
 def dot(vec1, vec2):
@@ -331,7 +331,7 @@ def grad(f, solver):
         Number of grid step sizes ({}) != to dimensionality of field ({})
         """.format(len(h), len(f.shape))
 
-    gradient = np.zeros((3, *f.shape)) * f.unit / solver.dx.unit
+    gradient = np.zeros((3, *f.shape)) * f.unit / solver.dx[0].unit
     for dim in range(len(solver.dx)):
         gradient[dim] = solver(f, dim)
 
@@ -398,7 +398,7 @@ def curl(vec, solver):
         Number of grid step sizes ({}) != to dimensionality of field ({})
         """.format(len(solver.dx), len(vec.shape[1:]))
 
-    curl = np.zeros(vec.shape) * vec.unit / solver.dx.unit
+    curl = np.zeros(vec.shape) * vec.unit / solver.dx[0].unit
     for k in range(3):
         for l in range(3):
             for m in range(3):
@@ -477,10 +477,15 @@ def tensordiv(tensor, solver):
         """.format(len(solver.dx), len(tensor.shape[2:]))
 
     dims = range(len(solver.dx))
+    dx_unit = None
+    if isinstance(solver.dx, tuple):
+        dx_unit = solver.dx[0].unit
+    else:
+        dx_unit = solver.dx.unit
     divergence = np.array([sum([solver(tensor[i, 0, ...], i) for i in dims]),
                            sum([solver(tensor[i, 1, ...], i) for i in dims]),
                            sum([solver(tensor[i, 2, ...], i) for i in dims])])\
-        * tensor.unit / solver.dx.unit
+        * tensor.unit / dx_unit
     assert divergence.shape == tensor.shape[1:], """
         Output field has shape {}, should be {}
         """.format(divergence.shape, tensor.shape[1:])
