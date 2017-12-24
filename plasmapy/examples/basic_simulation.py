@@ -123,7 +123,7 @@ def test_mhd_waves():
         print("Simulation complete")
 
         fig, ax = plt.subplots()
-        IM = ax.imshow(waves.density, cmap='plasma')
+        IM = ax.imshow(np.squeeze(waves.density.value), cmap='plasma')
         plt.colorbar(IM)
         fig.savefig(str(savedir/f"mhd_waves_{max_i}"))
         plt.close(fig)
